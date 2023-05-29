@@ -1,0 +1,26 @@
+name: Build and Test "Can Message" Component
+
+#define when to run this pipeline/workflow
+on: 
+  push:
+    branches:
+      - master
+      - develop
+      - feature
+      - refactor
+  pull_request:
+    branches:
+      - master
+      - develop
+jobs:
+  build_and_test:
+    name: Build the source code and run Python script # will displayed on github
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3          # use the latest version
+      - name: Install prerequisites
+        run: sudo apt-get install -y python3      # install to some cloud or virtual machines
+      - name: build the code
+        run: echo "python testing ..."
+ 

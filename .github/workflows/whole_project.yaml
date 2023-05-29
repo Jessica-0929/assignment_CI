@@ -1,0 +1,35 @@
+name: "build the whole project"
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - feature
+      - refactor
+  pull_request:
+    branches:
+      - master
+      - develop
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    name: build the whole project
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v3
+        # clone the 
+      - name: Install prerequisites
+        run: sudo apt-get install -y python3 cmake build-essential tree
+        # google test downloaded by cmake fetch
+        # download tree to check the stucture
+      - name: visually control the code
+        run: tree .
+      - name: build the code
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          cmake --build .
+      - name: notify user
+        run: echo "Success!"
