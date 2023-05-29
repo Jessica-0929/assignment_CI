@@ -1,0 +1,150 @@
+@startuml "GroupAssignment Detailed"
+
+skinparam sequenceMessageAlign right
+
+actor developer as "Developer"
+box "GroupAssignemnt"
+    participant assignment as "Assignment"
+    participant file_io as "Component File_IO"
+    participant can_msg as "Component CAN Messages"
+    participant main_component as "Main Component"
+end box
+
+box "Knowledge"
+    control c1 as "1. About basic\n CI principles"
+    control c2 as "2. About setting up\n a CI environment"
+    control c3 as "3. About integration \nwith the version\n management tool GIT"
+    control c4 as "4. About application \nand systematics of \nthe most common \nscripting languages\n (Python)"
+    control c5 as "5. About handling\n make files"
+    control c6 as "6. About programming \nin scripts (Python)"
+    control c7 as "7. About installation, \nconfiguration and use\n of a CI \n(Continuous Integration) system"
+end box
+
+
+box "Skills"
+    queue q8 as "8. To deploy \nand work \nwith Continuous Integration"
+    queue q9 as "9. To version manage\n code and configuration"
+    queue q10 as "10. To program in \nscript (Python)"
+    queue q11 as "11. To create and \nmanage make files"
+end box
+
+
+box "Competences"
+    collections c12 as "12. Independently install\n and configure \nsimple CI (Continuous Integration) flows"
+    collections c13 as "13. Be able to independently\n develop programs in Python"
+end box
+
+
+developer -> assignment 
+activate assignment
+
+' components 
+
+assignment -> file_io
+activate file_io
+
+file_io -> c3 : add a component to a git repo
+activate c3
+c3 -> file_io
+deactivate c3
+
+file_io -> c5 : have an understanding of Makefiles
+activate c5
+c5 -> file_io
+deactivate c5
+
+
+file_io -> q9 : Later we will use branch to develop other component
+activate q9
+q9 -> file_io
+deactivate q9
+
+
+file_io -> q11 : using Makefiles/CMakeLists.txt
+activate q11
+q11 -> file_io
+deactivate q11
+
+
+file_io -> q10 : (Python) Component test (provide an input, compare with output)
+activate q10
+q10 -> file_io
+deactivate q10
+
+
+file_io -> c13 : (Python) Component test (provide an input, compare with output)
+activate c13
+c13 -> file_io
+deactivate c13
+
+
+file_io -> assignment
+deactivate file_io
+
+assignment -> can_msg
+activate can_msg
+
+
+
+can_msg -> c6 : To know how to use Python as a component to generate a code from JSON
+activate c6
+c6 -> can_msg
+deactivate c6
+
+can_msg -> c13 : (Python) Component test (provide an input, compare with output)
+activate c13
+c13 -> can_msg
+deactivate c13
+
+
+can_msg -> q9 : Later we will use branch to develop other component
+activate q9
+q9 -> can_msg
+deactivate q9
+
+
+can_msg -> assignment
+deactivate can_msg
+
+
+
+assignment -> main_component
+activate main_component
+
+
+main_component -> c13 : (Python) Component test (provide an input, compare with output)
+activate c13
+c13 -> main_component
+deactivate c13
+
+main_component -> c13 : (Python) Component test (provide an input, compare with output)
+activate c13
+c13 -> main_component
+deactivate c13
+
+
+main_component -> q9 : Later we will use branch to develop other component
+activate q9
+q9 -> main_component
+deactivate q9
+
+main_component -> assignment
+deactivate main_component
+
+
+' Competence
+assignment -> q8 : "Be able to create an a Github repo a pipeline/workflow"
+activate q8
+q8 -> c12 : "Be able to create an a Github repo a pipeline/workflow"
+activate c12
+c12 -> q8 : "be able also write .YAML file"
+deactivate q8
+q8 -> assignment : at least 1 component is using CI pipeline/Flow
+deactivate c12 
+
+
+
+assignment -> developer
+deactivate assignment
+
+@enduml
