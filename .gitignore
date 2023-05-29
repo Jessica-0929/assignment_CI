@@ -1,0 +1,18 @@
+# we ignore the folder "build"
+build/
+
+# ignore build inside sub directories, ** means in this folder and sub-folder
+**/build/
+
+# ignore object files and genereated libraries 
+*.o
+*.obj
+*.a 
+
+# ignore vscode folder
+.vscode/
+
+# ignore specific files, ** means in this folder and sub-folder
+**/todo.md
+
+# specific_folder/specific_files

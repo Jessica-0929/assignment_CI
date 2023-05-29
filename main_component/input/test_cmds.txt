@@ -1,0 +1,7 @@
+set volume 100
+get humidity
+set humidity 100
+get temperature
+set temperature 800
+get volume
+set stop_signal_light enabled
