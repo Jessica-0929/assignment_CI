@@ -6,13 +6,6 @@
 
 4) Do the unit test with Google Test and Github Actions and also tried a little bit with Pytest. 
 
-# With Azure Devops
-connect: commit AB#nr
-update changes: fixes AB#nr
-finish the connected work item: fixed AB#1
-
-
-
 
 # Can_message component
 # start with generate_cpp.py: 
@@ -30,3 +23,9 @@ unit test: lib/ut/ut_lib_tests.cpp, test.cpp(as the main function)
 src/main.cpp calls file_io component to read the input data, and convert data to JSON string with can_message component, then output to ./signals_biglist.json file
 did the unit test by pytest
 
+
+
+With Azure Devops
+connect: commit AB#nr
+update changes: fixes AB#nr
+finish the connected work item: fixed AB#1
