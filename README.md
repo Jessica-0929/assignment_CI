@@ -8,7 +8,7 @@
 
 
 # Can_message component
-# start with generate_cpp.py: 
+start with generate_cpp.py: 
 a script to generate "./output/include/can_message/min_signals.h" and "./output/src/min_signal.cpp"
 these two files used to convert different CAN signals to a JSON string, and return the JSON string
 
